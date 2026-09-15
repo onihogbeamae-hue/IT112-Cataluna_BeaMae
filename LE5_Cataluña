@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main(void) {
+    int num, total = 0;
+
+    printf("Enter positive numbers to ADD (zero or negative number to STOP)\n");
+    printf("\n");
+
+    while (1) {
+        printf("Enter a number: ");
+        scanf("%d", &num);
+
+        if (num <= 0) {
+            break;
+        }
+
+        total += num;
+    }
+
+    printf("Total sum is: %d\n", total);
+
+    return 0;           
+}
+
+
+
+Enter positive numbers to ADD (zero or negative number to STOP)
+
+Enter a number: 18
+Enter a number: 5
+Enter a number: 8
+Enter a number: 14
+Enter a number: 21
+Enter a number: 10
+Enter a number: 0
+Total sum is: 76
+
