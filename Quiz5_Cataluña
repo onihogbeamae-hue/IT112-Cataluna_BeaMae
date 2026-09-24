@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+int main() {
+    float savings, total = 0.0, average, remaining;
+    int day;
+
+    printf("====================================\n");
+    printf(" DAILY SAVINGS TRACKER\n");
+    printf("====================================\n");
+
+    for (day = 1; day <= 7; day++) {
+        printf("Enter savings for Day %d: ", day);
+        scanf("%f", &savings);
+
+        total += savings;
+    }
+
+    average = total / 7;
+
+    printf("====================================\n");
+    printf(" SAVINGS SUMMARY\n");
+    printf("====================================\n");
+
+    printf("Total Savings: PHP %.2f\n", total);
+    printf("Daily Average: PHP %.2f\n", average);
+
+    if (total >= 500.00) {
+        printf("Status: GOAL REACHED\n");
+    } else {
+        remaining = 500.00 - total;
+
+        printf("Status: GOAL NOT REACHED\n");
+        printf("You need PHP %.2f more to reach your goal.\n", remaining);
+    }
+
+    printf("====================================\n");
+
+    return 0;
+}
+
+
+====================================
+ DAILY SAVINGS TRACKER
+====================================
+Enter savings for Day 1: 300
+Enter savings for Day 2: 400
+Enter savings for Day 3: 200
+Enter savings for Day 4: 100
+Enter savings for Day 5: 80
+Enter savings for Day 6: 50
+Enter savings for Day 7: 70
+====================================
+ SAVINGS SUMMARY
+====================================
+Total Savings: PHP 1200.00
+Daily Average: PHP 171.43
+Status: GOAL REACHED
+====================================
+
+
+...Program finished with exit code 0
