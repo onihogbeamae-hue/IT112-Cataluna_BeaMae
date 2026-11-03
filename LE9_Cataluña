@@ -1,0 +1,140 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+    int numStudents, age, i;
+    char name[100], course[100];
+    char line[200];
+
+    // Writing Student Database
+    printf("Writing Student Database:\n");
+
+    printf("How many students do you want to record? ");
+    scanf("%d", &numStudents);
+
+    // Open file in write mode
+    fp = fopen("student_records.txt", "w");
+
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    // Input student information
+    for (i = 1; i <= numStudents; i++) {
+        printf("\nStudent %d\n", i);
+
+        printf("Enter Name: ");
+        scanf(" %[^\n]", name);
+
+        printf("Enter Age: ");
+        scanf("%d", &age);
+
+        printf("Enter Course: ");
+        scanf(" %[^\n]", course);
+
+        // Save student information
+        fprintf(fp, "Student %d\n", i);
+        fprintf(fp, "Name: %s\n", name);
+        fprintf(fp, "Age: %d\n", age);
+        fprintf(fp, "Course: %s\n", course);
+        fprintf(fp, "-------------------------\n");
+    }
+
+    // Close file after writing
+    fclose(fp);
+
+    printf("\nStudent database successfully saved to file.\n");
+
+    // Reading Student Database
+    printf("\nReading Student Database:\n\n");
+
+    // Open file in read mode
+    fp = fopen("student_records.txt", "r");
+
+    if (fp == NULL) {
+        printf("Error reading file!\n");
+        return 1;
+    }
+
+    // Read and display file line by line
+    while (fgets(line, sizeof(line), fp) != NULL) {
+        printf("%s", line);
+    }
+
+    // Close file after reading
+    fclose(fp);
+
+    return 0;
+}
+
+
+
+Writing Student Database:
+How many students do you want to record? 6
+
+Student 1
+Enter Name: Janice 
+Enter Age: 18
+Enter Course: Bachelor of Science in Nursing 
+
+Student 2
+Enter Name: Genevieve 
+Enter Age: 18
+Enter Course: Bachelor of Science in Business Administration Major in Financial Management 
+
+Student 3
+Enter Name: Jerald
+Enter Age: 18
+Enter Course: Bachelor of Science in Business Administration Major in Financial Management 
+
+Student 4
+Enter Name: Alfieche
+Enter Age: 20
+Enter Course: Bachelor of Science in Criminology 
+
+Student 5
+Enter Name: Jemrex 
+Enter Age: 18
+Enter Course: Bachelor of Science in Criminology 
+
+Student 6
+Enter Name: Michael 
+Enter Age: 19
+Enter Course: Bachelor of Science in Criminology 
+
+Student database successfully saved to file.
+
+Reading Student Database:
+
+Student 1
+Name: Janice 
+Age: 18
+Course: Bachelor of Science in Nursing 
+-------------------------
+Student 2
+Name: Genevieve 
+Age: 18
+Course: Bachelor of Science in Business Administration Major in Financial Management 
+-------------------------
+Student 3
+Name: Jerald
+Age: 18
+Course: Bachelor of Science in Business Administration Major in Financial Management 
+-------------------------
+Student 4
+Name: Alfieche
+Age: 20
+Course: Bachelor of Science in Criminology 
+-------------------------
+Student 5
+Name: Jemrex 
+Age: 18
+Course: Bachelor of Science in Criminology 
+-------------------------
+Student 6
+Name: Michael 
+Age: 19
+Course: Bachelor of Science in Criminology 
+-------------------------
